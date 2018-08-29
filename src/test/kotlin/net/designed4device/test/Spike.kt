@@ -21,24 +21,24 @@ class Spike {
             field6 = "asdnivjpisd3"
     )
 
-    private val common = Common(
+    private val full = Common(
             small = small,
             large = large
     )
 
-    private val commonJson = jacksonObjectMapper().writeValueAsString(common)
+    private val fullJson = jacksonObjectMapper().writeValueAsString(full)
 
     @Test
     fun small() {
         printTimeMillis("small") {
-            val test = jacksonObjectMapper().readValue<Small>(commonJson)
+            val test = jacksonObjectMapper().readValue<Small>(fullJson)
         }
     }
 
     @Test
     fun large() {
         printTimeMillis("large") {
-            val test = jacksonObjectMapper().readValue<Large>(commonJson)
+            val test = jacksonObjectMapper().readValue<Large>(fullJson)
         }
     }
 
